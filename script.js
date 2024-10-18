@@ -23,7 +23,10 @@ standardBtn.addEventListener("click", function () {
 });
 
 let darkenBtn = document.querySelector("#darken");
-darkenBtn.addEventListener("click", clearGrid);
+darkenBtn.addEventListener("click", function () {
+  clearGrid();
+  paintMode = "darken";
+});
 
 let clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", clearGrid);
@@ -32,6 +35,7 @@ function clearGrid() {
   let squares = document.querySelectorAll(".square");
   for (square of squares) {
     square.style.backgroundColor = "#ffffff";
+    square.style.opacity = "1.0";
   }
 }
 
@@ -42,6 +46,8 @@ function changeColor(element) {
   } else if (paintMode == "disco") {
     let colorValue = "#" + Math.floor(Math.random() * 16777215).toString(16);
     element.style.backgroundColor = colorValue;
+  } else if (paintMode == "darken") {
+    element.style.opacity -= 0.1;
   }
 }
 
@@ -56,6 +62,8 @@ function createGrid(size = 16) {
       square.style.height = squareHeight;
       square.style.width = squareHeight;
       square.classList.add("standard");
+      square.style.backgroundColor = "#ffffff";
+      square.style.opacity = "1.0";
       square.addEventListener("mouseenter", function () {
         changeColor(square);
       });
