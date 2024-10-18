@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  createGrid();
+});
+
 let display = document.querySelector("#display");
 displayHeight = "500px";
 display.style.height = displayHeight;
@@ -10,19 +14,22 @@ let discoBtn = document.querySelector("#randomize");
 discoBtn.addEventListener("click", function () {
   clearGrid();
   paintMode = "disco";
-  console.log(paintMode);
 });
 
 let standardBtn = document.querySelector("#standard");
 standardBtn.addEventListener("click", function () {
   clearGrid();
   paintMode = "standard";
-  console.log(paintMode);
 });
+
+let darkenBtn = document.querySelector("#darken");
+darkenBtn.addEventListener("click", clearGrid);
+
+let clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", clearGrid);
 
 function clearGrid() {
   let squares = document.querySelectorAll(".square");
-  console.log(squares);
   for (square of squares) {
     square.style.backgroundColor = "#ffffff";
   }
@@ -32,8 +39,8 @@ function changeColor(element) {
   if (paintMode == "standard") {
     let colorValue = document.querySelector("#favcolor").value;
     element.style.backgroundColor = colorValue;
-  } else if ((paintMode = "disco")) {
-    let colorValue = Math.floor(Math.random() * 16777215).toString(16);
+  } else if (paintMode == "disco") {
+    let colorValue = "#" + Math.floor(Math.random() * 16777215).toString(16);
     element.style.backgroundColor = colorValue;
   }
 }
@@ -56,8 +63,6 @@ function createGrid(size = 16) {
     }
   }
 }
-
-createGrid();
 
 function promptUser() {
   let gridPrompt = prompt(
