@@ -6,9 +6,36 @@ displaySize = parseInt(displayHeight);
 
 let paintMode = "standard";
 
+let discoBtn = document.querySelector("#randomize");
+discoBtn.addEventListener("click", function () {
+  clearGrid();
+  paintMode = "disco";
+  console.log(paintMode);
+});
+
+let standardBtn = document.querySelector("#standard");
+standardBtn.addEventListener("click", function () {
+  clearGrid();
+  paintMode = "standard";
+  console.log(paintMode);
+});
+
+function clearGrid() {
+  let squares = document.querySelectorAll(".square");
+  console.log(squares);
+  for (square of squares) {
+    square.style.backgroundColor = "#ffffff";
+  }
+}
+
 function changeColor(element) {
-  let colorValue = document.querySelector("#favcolor").value;
-  element.style.backgroundColor = colorValue;
+  if (paintMode == "standard") {
+    let colorValue = document.querySelector("#favcolor").value;
+    element.style.backgroundColor = colorValue;
+  } else if ((paintMode = "disco")) {
+    let colorValue = Math.floor(Math.random() * 16777215).toString(16);
+    element.style.backgroundColor = colorValue;
+  }
 }
 
 function createGrid(size = 16) {
@@ -19,7 +46,6 @@ function createGrid(size = 16) {
       square.setAttribute("id", `square-${i}${j}`);
       square.setAttribute("class", "square");
       squareHeight = displaySize / size + "px";
-      console.log(squareHeight);
       square.style.height = squareHeight;
       square.style.width = squareHeight;
       square.classList.add("standard");
