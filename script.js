@@ -3,7 +3,8 @@ displayHeight = "500px";
 display.style.height = displayHeight;
 display.style.width = displayHeight;
 displaySize = parseInt(displayHeight);
-console.log(displaySize);
+
+let paintMode = "standard";
 
 function changeColor(element) {
   let colorValue = document.querySelector("#favcolor").value;
@@ -31,13 +32,6 @@ function createGrid(size = 16) {
 }
 
 createGrid();
-
-// let gridSizeBtn = document.querySelector("#grid-size");
-// gridSizeBtn.addEventListener("click", function () {
-//   createGrid(
-//     prompt("Enter new grid size (i.e. for 10 x 10 grid, enter 10)", 16),
-//   );
-// });
 
 function promptUser() {
   let gridPrompt = prompt(
