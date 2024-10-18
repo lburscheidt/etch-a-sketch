@@ -30,9 +30,24 @@ function createGrid(size = 16) {
 
 createGrid();
 
+// let gridSizeBtn = document.querySelector("#grid-size");
+// gridSizeBtn.addEventListener("click", function () {
+//   createGrid(
+//     prompt("Enter new grid size (i.e. for 10 x 10 grid, enter 10)", 16),
+//   );
+// });
+
+function promptUser() {
+  let gridPrompt = prompt(
+    "Enter new grid size between 1 and 100 (i.e. for a 10 x 10 grid, enter 10)",
+    16,
+  );
+  if (gridPrompt > 0 && gridPrompt <= 100 && gridPrompt.match(/\d/gim)) {
+    createGrid(gridPrompt);
+  } else {
+    promptUser();
+  }
+}
+
 let gridSizeBtn = document.querySelector("#grid-size");
-gridSizeBtn.addEventListener("click", function () {
-  createGrid(prompt(
-    "Enter new grid size (i.e. for 10 x 10 grid, enter 10)",
-    16))
-});
+gridSizeBtn.addEventListener("click", promptUser);
