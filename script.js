@@ -6,7 +6,8 @@ displaySize = parseInt(displayHeight);
 console.log(displaySize);
 
 function changeColor(element) {
-  element.style.backgroundColor = "#000";
+  let colorValue = document.querySelector("#favcolor").value;
+  element.style.backgroundColor = colorValue;
 }
 
 function createGrid(size = 16) {
