@@ -8,14 +8,20 @@
     <link rel="icon" type="image/x-icon" href="/etch-a-sketch.png" />
   </head>
   <body>
-    <header>ETCH A SKETCH</header><main>
-    <label for="favcolor">Select a color:</label>
-    <input type="color" id="favcolor" value="#000000" />
-<button id="randomize">Disco</button>
-    <button id="grid-size">Grid size</button>
-    </button>
-    <section id="display"></section>
-</main>
+    <header>ETCH A SKETCH</header>
+    <main>
+      <section id="display"></section>
+      <section id="buttons">
+        <button id="standard">Standard mode</button>
+        <button id="randomize">Disco mode</button>
+        <button id="darken">Artist mode</button>
+        <button id="grid-size">Resize grid</button>
+        <button id="clear">Clear grid</button>
+        <label for="favcolor"
+          >Select a color: <input type="color" id="favcolor" value="#000000"
+        /></label>
+      </section>
+    </main>
     <script src="script.js"></script>
     <footer></footer>
   </body>
