@@ -2,6 +2,16 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header {
+  background-color: red;
+  color: white;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
 div {
   border: 1px solid black;
   margin: -1px;
@@ -11,8 +21,8 @@ div {
 body {
   height: 100vh;
   display: flex;
-
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 

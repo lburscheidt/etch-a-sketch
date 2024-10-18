@@ -21,6 +21,7 @@ function createGrid(size = 16) {
       console.log(squareHeight);
       square.style.height = squareHeight;
       square.style.width = squareHeight;
+      square.classList.add("standard");
       square.addEventListener("mouseenter", function () {
         changeColor(square);
       });
