@@ -10,6 +10,7 @@ function changeColor(element) {
 }
 
 function createGrid(size = 16) {
+  display.innerText = "";
   for (let j = 1; j <= size; j++) {
     for (let i = 1; i <= size; i++) {
       let square = document.createElement("div");
@@ -28,3 +29,10 @@ function createGrid(size = 16) {
 }
 
 createGrid();
+
+let gridSizeBtn = document.querySelector("#grid-size");
+gridSizeBtn.addEventListener("click", function () {
+  createGrid(prompt(
+    "Enter new grid size (i.e. for 10 x 10 grid, enter 10)",
+    16))
+});
