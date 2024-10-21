@@ -3,6 +3,8 @@
 }
 
 header {
+  font-weight: 800;
+  font-size: 1.25rem;
   background-color: red;
   color: white;
   width: 100%;

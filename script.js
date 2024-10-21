@@ -32,10 +32,10 @@ let clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", clearGrid);
 
 function clearGrid() {
+  let alpha = 1.0;
   let squares = document.querySelectorAll(".square");
   for (square of squares) {
-    square.style.backgroundColor = "#ffffff";
-    square.style.opacity = "1.0";
+    square.style.backgroundColor = `rgba(255,255,255, ${alpha})`;
   }
 }
 
@@ -47,7 +47,14 @@ function changeColor(element) {
     let colorValue = "#" + Math.floor(Math.random() * 16777215).toString(16);
     element.style.backgroundColor = colorValue;
   } else if (paintMode == "darken") {
-    element.style.opacity -= 0.1;
+    const value =
+      getComputedStyle(element).getPropertyValue("background-color");
+    const parts = value.match(/[\d.]+/g);
+    if (parts.length === 3) {
+      parts.push(1.0);
+    }
+    parts[3] = Math.min(1, Math.max(0, parseFloat(parts[3]) - 0.1));
+    element.style.backgroundColor = `rgba(${parts.join(",")})`;
   }
 }
 
